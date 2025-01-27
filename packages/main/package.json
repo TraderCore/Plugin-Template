@@ -6,6 +6,9 @@
 	"module": "dist/index.mjs",
 	"types": "dist/index.d.ts",
 	"files": ["dist"],
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"build": "tsup",
 		"clean": "rimraf dist",
@@ -13,7 +16,7 @@
 		"test": "jest"
 	},
 	"dependencies": {
-		"@trader-core/types": "workspace:*"
+		"@tradercore/plugin-template-types": "workspace:*"
 	},
 	"devDependencies": {
 		"typescript": "^5.3.3",
