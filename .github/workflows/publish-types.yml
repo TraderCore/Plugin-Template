@@ -3,7 +3,7 @@ name: Publish Types Package
 on:
   push:
     tags:
-      - 'types-v*'
+      - 'types/v*'
 
 jobs:
   publish:
