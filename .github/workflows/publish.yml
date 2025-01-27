@@ -5,45 +5,8 @@ on:
     types: [published]
 
 jobs:
-  publish-types:
-    if: startsWith(github.ref, 'refs/tags/types/v')
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup PNPM
-        uses: pnpm/action-setup@v2
-        with:
-          version: 9
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          registry-url: 'https://registry.npmjs.org'
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Build types package
-        run: pnpm --filter "@tradercore/plugin-template-types" build
-
-      - name: Sync version from tag
-        run: |
-          VERSION=${GITHUB_REF#refs/tags/types/v}
-          cd packages/types
-          pnpm version $VERSION --no-git-tag-version
-
-      - name: Publish to NPM
-        run: |
-          cd packages/types
-          pnpm publish --no-git-checks --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-  publish-main:
-    if: startsWith(github.ref, 'refs/tags/main/v')
+  publish:
+    if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -70,13 +33,13 @@ jobs:
 
       - name: Sync version from tag
         run: |
-          VERSION=${GITHUB_REF#refs/tags/main/v}
-          cd packages/main
-          pnpm version $VERSION --no-git-tag-version
+          VERSION=${GITHUB_REF#refs/tags/v}
+          cd packages/types && pnpm version $VERSION --no-git-tag-version
+          cd ../main && pnpm version $VERSION --no-git-tag-version
 
       - name: Publish to NPM
         run: |
-          cd packages/main
-          pnpm publish --no-git-checks --access public
+          cd packages/types && pnpm publish --no-git-checks --access public
+          cd ../main && pnpm publish --no-git-checks --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} 
