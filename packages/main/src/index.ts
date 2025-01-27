@@ -1,4 +1,7 @@
-import type { BaseConfig, PluginStatus } from "@trader-core/types";
+import type {
+	BaseConfig,
+	PluginStatus,
+} from "@tradercore/plugin-template-types";
 
 export class Plugin {
 	private config: BaseConfig;
