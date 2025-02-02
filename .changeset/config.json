@@ -1,0 +1,12 @@
+{
+	"changelog": [
+		"@changesets/changelog-git",
+		{ "repo": "tradercore/plugin-template" }
+	],
+	"commit": false,
+	"linked": [],
+	"access": "public",
+	"baseBranch": "main",
+	"updateInternalDependencies": "patch",
+	"ignore": []
+}

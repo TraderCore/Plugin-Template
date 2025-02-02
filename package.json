@@ -5,10 +5,17 @@
 		"build": "pnpm -r build",
 		"dev": "pnpm -r dev",
 		"clean": "pnpm -r clean",
-		"test": "pnpm -r test"
+		"test": "pnpm -r test",
+		"release:version": "changeset version",
+		"release:publish": "changeset publish",
+		"changeset": "changeset"
 	},
 	"engines": {
 		"node": ">=18",
 		"pnpm": ">=8"
+	},
+	"devDependencies": {
+		"@changesets/cli": "^2.27.1",
+		"@changesets/changelog-git": "^0.2.0"
 	}
 }
