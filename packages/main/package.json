@@ -10,7 +10,7 @@
 		"build": "tsup",
 		"clean": "rimraf dist",
 		"dev": "tsup --watch",
-		"test": "jest"
+		"test": "jest --passWithNoTests"
 	},
 	"dependencies": {
 		"@tradercore/plugin-template-types": "workspace:*"
