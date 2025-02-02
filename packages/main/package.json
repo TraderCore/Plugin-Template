@@ -1,8 +1,10 @@
 {
 	"name": "@tradercore/plugin-template-main",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"type": "module",
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"publishConfig": {
 		"access": "public"
 	},
