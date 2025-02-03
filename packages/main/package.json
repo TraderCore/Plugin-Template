@@ -2,9 +2,7 @@
 	"name": "@tradercore/plugin-template-main",
 	"version": "1.0.0",
 	"type": "module",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"publishConfig": {
 		"access": "public"
 	},
@@ -15,7 +13,9 @@
 		"test": "jest --passWithNoTests"
 	},
 	"dependencies": {
-		"@tradercore/plugin-template-types": "workspace:*"
+		"@tradercore/plugin-template-types": "workspace:*",
+		"@tradercore/framework": "1.0.2",
+		"@nestjs/common": "^10"
 	},
 	"devDependencies": {
 		"typescript": "^5.3.3",
